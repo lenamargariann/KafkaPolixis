@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Strings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            min-height: 50px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative; /* Added for positioning the back button */
+        }
+
+        .list-group {
+            margin-top: 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .list-group-item {
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .list-group-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Back button styles */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Header styles */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a th:href="@{/}" class="back-button">Back</a>
+    <h1 class="header" th:text="'List of messages'">List of messages</h1>
+    <ul class="list-group">
+        <li th:each="message : ${messagesList}" class="list-group-item" th:text="${message.message}"></li>
+    </ul>
+</div>
+</body>
+</html>
